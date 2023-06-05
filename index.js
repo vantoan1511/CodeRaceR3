@@ -6,9 +6,7 @@
 // 
 var  ws = new WebSocket('ws://127.0.0.1:5500/');
 console.log(ws.readyState);
-console.log('dang');
-
-
+console.log('dang1');
 
 ws.onopen = function(evt) { 
   console.log("Connection open ..."); 
