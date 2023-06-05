@@ -6,14 +6,7 @@
 // 
 var  ws = new WebSocket('ws://127.0.0.1:5500/');
 console.log(ws.readyState);
-console.log('dang');
-ws.addEventListener('open', function(event) {
-    console.log(event);
-});
-ws.onopen = function () {
-  ws.send('Hello Server!');
-}
-
+console.log('dang1');
 
 ws.onopen = function(evt) { 
   console.log("Connection open ..."); 
