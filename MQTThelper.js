@@ -1,4 +1,4 @@
-const mqtt = require('mqtt');
+<script src="paho-mqtt.js"></script>
 
 const arrayTopics = [
   "lygiahuy05022002/feeds/temp",
@@ -18,49 +18,49 @@ const password = "aio" + "_kHoz82rC78CkW8BT3G9jf3LXAoDy";
 
 const serverUri = "mqtt://io.adafruit.com:1883";
 
-const client = mqtt.connect(serverUri, {
-  clientId: clientId,
-  username: username,
-  password: password
-});
+const mqttClient = new Paho.MQTT.Client(serverUri, clientId);
 
-client.on('connect', function () {
+mqttClient.onConnectionLost = onConnectionLost;
+mqttClient.onMessageArrived = onMessageArrived;
+
+const connectOptions = {
+  onSuccess: onConnect,
+  onFailure: onFailure,
+  userName: username,
+  password: password,
+  useSSL: true
+};
+
+mqttClient.connect(connectOptions);
+
+function onConnect() {
   console.log('Ket noi thanh cong ...');
-  arrayTopics.forEach((topic) => {
-    client.subscribe(topic);
-  });
-});
+  subscribeToTopics();
+}
 
-client.on('message', function (topic, message) {
-  console.log('Nhan du lieu:', message.toString(), ', feed id:', topic.split('/').pop());
-});
+function onConnectionLost(responseObject) {
+  if (responseObject.errorCode !== 0) {
+    console.error('Ket noi bi mat:', responseObject.errorMessage);
+  }
+}
 
-client.on('error', function (error) {
-  console.error('Loi ket noi:', error);
-});
+function onMessageArrived(message) {
+  console.log('Nhan du lieu:', message.payloadString, ', feed id:', message.destinationName.split('/').pop());
+}
 
-client.on('close', function () {
-  console.log('Ket noi bi dong ...');
-});
+function onFailure(responseObject) {
+  console.error('Loi ket noi:', responseObject.errorMessage);
+}
 
-// main program
 function subscribeToTopics() {
   arrayTopics.forEach((topic) => {
-    client.subscribe(topic, function (err) {
-      if (err) {
-        console.error('Loi khi subscribe:', err);
-      } else {
+    mqttClient.subscribe(topic, {
+      onSuccess: function () {
         console.log('Da subscribe thanh cong cho topic:', topic);
+      },
+      onFailure: function (err) {
+        console.error('Loi khi subscribe:', err.errorMessage);
       }
     });
   });
 }
-
-function connectToBroker() {
-  client.on('connect', function () {
-    console.log('Ket noi thanh cong ...');
-    subscribeToTopics();
-  });
-}
-
-connectToBroker();
