@@ -466,19 +466,19 @@ const plugin = ({widgets, simulator, vehicle}) => {
 
         
         box.injectNode(IVIAnimationFrame)
-        print = (text) => {
-            const line = document.createElement("div")
-            line.className = "flex mt-2 font-mono last:pb-4"
-            line.innerHTML = `
-            <span class="text-green-400 select-none">&gt;&gt;&gt;</span>
-            <p class="flex-1 items-center pl-2 whitespace-pre-line">${text}</p>
-            `
-            IVIAnimationFrame.querySelector(".terminal-lines").appendChild(line)
-        }
+        // print = (text) => {
+        //     const line = document.createElement("div")
+        //     line.className = "flex mt-2 font-mono last:pb-4"
+        //     line.innerHTML = `
+        //     <span class="text-green-400 select-none">&gt;&gt;&gt;</span>
+        //     <p class="flex-1 items-center pl-2 whitespace-pre-line">${text}</p>
+        //     `
+        //     IVIAnimationFrame.querySelector(".terminal-lines").appendChild(line)
+        // }
 
-        reset = () => {
-            IVIAnimationFrame.querySelector(".terminal-lines").textContent = ""
-        }
+        // reset = () => {
+        //     IVIAnimationFrame.querySelector(".terminal-lines").textContent = ""
+        // }
         return () => {
             print = null
             if (sim_intervalId !== null) {
