@@ -13,9 +13,9 @@ const plugin = ({ widgets, simulator, vehicle }) => {
         sim_function = args[0]
     })
 
-    simulator("Vehicle.Speed", "get", async () => {
-        return (parseFloat(parseFloat(VSSdata[index]["Vehicle.Speed"]).toFixed() * 3.6).toFixed(2) + " km/h");
-    })
+    // simulator("Vehicle.Speed", "get", async () => {
+    //     return (parseFloat(parseFloat(VSSdata[index]["Vehicle.Speed"]).toFixed() * 3.6).toFixed(2) + " km/h");
+    // })
 
     return {
         start_simulation: (time, skip = 1) => {
