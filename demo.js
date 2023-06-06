@@ -7,6 +7,11 @@ const plugin = ({ widgets, simulator, vehicle }) => {
         vehicle: vehicle,
         refresh: 1000
     }));
+
+    let sim_function;
+    simulator("Vehicle.Speed", "subscribe", async ({ func, args }) => {
+        sim_function = args[0]
+    })
 }
 
 export default plugin;
