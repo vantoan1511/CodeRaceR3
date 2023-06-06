@@ -6,7 +6,7 @@ const plugin = ({ widgets, simulator, vehicle }) => {
         apis: ["Vehicle.Speed", "Vehicle.TripMeterReading", "Vehicle.Acceleration.Lateral", "Vehicle.Acceleration.Longitudinal", "Vehicle.Acceleration.Vertical", "Vehicle.AngularVelocity.Roll", "Vehicle.AngularVelocity.Pitch", "Vehicle.AngularVelocity.Yaw", "Vehicle.CurrentLocation.Latitude", "Vehicle.CurrentLocation.Longitude"],
         vehicle: vehicle,
         refresh: 1000
-    }))
+    }));
 }
 
 export default plugin;
