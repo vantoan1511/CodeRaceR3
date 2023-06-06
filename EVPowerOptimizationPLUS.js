@@ -217,7 +217,8 @@ const plugin = ({widgets, simulator, vehicle}) => {
 		`
 		<style>
         .main-class {
-            width: 100%;
+            width: 95%;
+            margin-left:25px;
             height:100%
         }
         .wind {
@@ -269,18 +270,18 @@ const plugin = ({widgets, simulator, vehicle}) => {
             width: 3%;
         }
         .main-img{
-            width: 100%;
-            height: 100%;
+            width: 96%;
+            height: 96%;
             margin-top: 2%;
-            margin-left: 2%;
+            margin-left: 3%;
             margin-right: 2%;
         }
         .main-div {
             position: absolute;
-            top: 15%;
-            left: 20%;
-            width: 70%;
-            height: 70%;
+            top: 12%;
+            left: 17.8%;
+            width: 66%;
+            height: 74%;
             background-color: rgb(31 41 55);
         }
     
