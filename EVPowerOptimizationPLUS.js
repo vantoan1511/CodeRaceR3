@@ -256,6 +256,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
     });
 
     let IVIAnimationFrame = null;
+    let print = null, reset = null
     widgets.register("IVI Animation", (box) => {
         IVIAnimationFrame = document.createElement("div")
         IVIAnimationFrame.style = "max-wisth:fit-content"
@@ -453,7 +454,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
         }
 
         IVIAnimationFrame.querySelector("#songName").innerText = "Shape of You一Ed Sheeran";
-        let print = null, reset = null
+        
         IVIAnimationFrame.querySelector("#mainText").innerHTML = `<div>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
         <div class="flex flex-col text-gray-100 text-sm subpixel-antialiased bg-gray-800 leading-normal overflow-auto h-48 scroll-gray h-full">
