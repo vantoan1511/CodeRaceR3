@@ -460,7 +460,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
             <div class="top flex items-center sticky top-0 left-0 bg-gray-800 px-5 pt-4 pb-2">
                 <div class="select-none">Terminal</div>
             </div>
-            <div class="flex flex-col h-full px-5 text-xs terminal-lines"></div>
+            <div class="flex flex-col h-full px-5 text-xs " id="terminal-line"></div>
         </div>
         </div>`;
 
@@ -473,11 +473,11 @@ const plugin = ({widgets, simulator, vehicle}) => {
             <span class="text-green-400 select-none">&gt;&gt;&gt;</span>
             <p class="flex-1 items-center pl-2 whitespace-pre-line">${text}</p>
             `
-            IVIAnimationFrame.querySelector(".terminal-lines").appendChild(line)
+            IVIAnimationFrame.querySelector("#terminal-line").appendChild(line)
         }
 
         reset = () => {
-            IVIAnimationFrame.querySelector(".terminal-lines").textContent = ""
+            IVIAnimationFrame.querySelector("#terminal-line").textContent = ""
         }
         return () => {
             print = null
