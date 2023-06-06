@@ -485,6 +485,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
             if (sim_intervalId !== null) {
                 clearInterval(sim_intervalId)
             }
+            
         }
 
     });
