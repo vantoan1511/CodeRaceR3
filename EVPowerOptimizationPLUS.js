@@ -693,6 +693,16 @@ const plugin = ({widgets, simulator, vehicle}) => {
 	})
 
 	return {
+        print: (text) => {
+            if (print !== null) {
+                print(text)
+            }
+        },
+        reset: () => {
+            if (reset !== null) {
+                reset()
+            }
+        },
 		start_simulation : start_sim,
         stop_simulation : stop_sim,
         load_signals : loadSpreadSheet,
