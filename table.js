@@ -27,7 +27,7 @@ const plugin = ({ widgets, simulator, vehicle }) => {
 
 
     widgets.register("Table", StatusTable({
-        apis: ["Vehicle.Speed","vehicle.CurrentLocation.Latitude"],
+        apis: ["Vehicle.Speed","Vehicle.CurrentLocation.Latitude","Vehicle.CurrentLocation.Longitude","Vehicle.ADAS.EBA.IsError","Vehicle.ADAS.EBA.IsEnabled"],
         vehicle: vehicle,
         refresh: 500
     }));
