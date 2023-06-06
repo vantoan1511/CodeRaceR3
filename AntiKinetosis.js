@@ -21,38 +21,38 @@ async function fetchSimulationResults(simulationDetails) {
 }
 
 async function fetchRowsFromSpreadsheet(spreadsheetId, apiKey) {
-    // Set the range to A1:Z1000
-    const range = "A1:Z2000";
+	// Set the range to A1:Z1000
+	const range = "A1:Z2000";
 
-    // Fetch the rows from the Google Spreadsheet API
-    const response = await fetch(
-        `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${encodeURIComponent(apiKey)}`
-    );
-    const json = await response.json();
-    // Get the headers from the first row
-    const headers = json.values[0];
-    // Convert the remaining rows to an array of objects
-    const rows = json.values.slice(1).map(row => {
-        const rowObject = {};
-        for (let i = 0; i < row.length; i++) {
-            rowObject[headers[i]] = row[i];
-        }
-        return rowObject;
-    });
+	// Fetch the rows from the Google Spreadsheet API
+	const response = await fetch(
+		`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${encodeURIComponent(apiKey)}`
+	);
+	const json = await response.json();
+	// Get the headers from the first row
+	const headers = json.values[0];
+	// Convert the remaining rows to an array of objects
+	const rows = json.values.slice(1).map(row => {
+		const rowObject = {};
+		for (let i = 0; i < row.length; i++) {
+			rowObject[headers[i]] = row[i];
+		}
+		return rowObject;
+	});
 
-    return rows;
+	return rows;
 }
 
-const plugin = ({widgets, simulator, vehicle}) => {
+const plugin = ({ widgets, simulator, vehicle }) => {
 
 	const loadSpreadSheet = async () => {
 		const style = await vehicle.DrivingStyle.get()
 		const spreadsheetId = style === "sporty" ? "1fDkYtcpYkBfxlH5BjmhAUs0eqnSZKEJ1w7p0uuEtnQs" : style === "relaxed" ? "1ibr2IGHh6vjuOcb-3u5qjVrQtig4wvMNOSjtCp0vyo4" : "19yh1r-CL3CSy7eiLLDm6ART6VgMNqNd1KxY7Rrygfyw";
 
 		fetchRowsFromSpreadsheet(spreadsheetId, PLUGINS_APIKEY)
-		.then((rows) => {
-			SimulatorPlugins(rows, simulator)
-		})
+			.then((rows) => {
+				SimulatorPlugins(rows, simulator)
+			})
 	}
 
 	const updateSimulation = async () => {
@@ -76,7 +76,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
 			mobileMessage = message;
 		}
 		else {
-			message =  "Kinetosis level is normal";
+			message = "Kinetosis level is normal";
 			mobileMessage = message;
 		}
 
@@ -84,23 +84,23 @@ const plugin = ({widgets, simulator, vehicle}) => {
 
 		mobileNotifications(mobileMessage);
 
-		if(setVehiclePinGlobal !== null) {
+		if (setVehiclePinGlobal !== null) {
 			setVehiclePinGlobal({
 				lat: parseFloat(lat),
 				lng: parseFloat(lng)
 			})
 		}
 	}
-	
-	let sim_intervalId = null;
-	
 
-    let controlsFrame = null;
-    widgets.register("Controls", (box) => {
-	controlsFrame = document.createElement("div")
-    controlsFrame.style = 'width:100%;height:100%;display:grid;align-content:center;justify-content:center;align-items:center'
-	controlsFrame.innerHTML = 
-		`
+	let sim_intervalId = null;
+
+
+	let controlsFrame = null;
+	widgets.register("Controls", (box) => {
+		controlsFrame = document.createElement("div")
+		controlsFrame.style = 'width:100%;height:100%;display:grid;align-content:center;justify-content:center;align-items:center'
+		controlsFrame.innerHTML =
+			`
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
         * {
@@ -198,7 +198,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
 			"gender": "male",
 			"age": "young"
 		}
-	
+
 		let sportyStyle = controlsFrame.querySelector("#red")
 		sportyStyle.onclick = () => {
 			simulationDetails["style"] = "sporty"
@@ -212,7 +212,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
 				return "sporty";
 			})
 		}
-	
+
 		let relaxedStyle = controlsFrame.querySelector("#green")
 		relaxedStyle.onclick = () => {
 			simulationDetails["style"] = "relaxed"
@@ -226,7 +226,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
 				return "relaxed";
 			})
 		}
-	
+
 		let optimizedStyle = controlsFrame.querySelector("#yellow")
 		optimizedStyle.onclick = () => {
 			simulationDetails["style"] = "optimized"
@@ -240,7 +240,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
 				return "optimized";
 			})
 		}
-	
+
 		let gender_male = controlsFrame.querySelector("#gender_male")
 		gender_male.onclick = () => {
 			simulationDetails["gender"] = "male"
@@ -250,7 +250,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
 				return "male";
 			})
 		}
-	
+
 		let gender_female = controlsFrame.querySelector("#gender_female")
 		gender_female.onclick = () => {
 			simulationDetails["gender"] = "female"
@@ -260,7 +260,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
 				return "female";
 			})
 		}
-	
+
 		let age_young = controlsFrame.querySelector("#age_young")
 		age_young.onclick = () => {
 			simulationDetails["age"] = "young"
@@ -270,7 +270,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
 				return parseInt("15");
 			})
 		}
-	
+
 		let age_old = controlsFrame.querySelector("#age_old")
 		age_old.onclick = () => {
 			simulationDetails["age"] = "adult"
@@ -410,7 +410,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
 		// 						lng: parseFloat(VSSdata[index]["Vehicle.CurrentLocation.Longitude"] * (180 / Math.PI))
 		// 					})
 		// 				}
-						
+
 		// 				scoreFrame.querySelector("#score .text").textContent = parseFloat(VSSdata[index]["KinetosisScore"]).toFixed(2) + "%"
 		// 				scoreFrame.querySelector("#score .mask").setAttribute("stroke-dasharray", (200 - (parseInt(VSSdata[index]["KinetosisScore"].split("%")[0]) * 2)) + "," + 200);
 		// 				scoreFrame.querySelector("#score .needle").setAttribute("y1", `${(parseInt(VSSdata[index]["KinetosisScore"].split("%")[0]) * 2)}`)
@@ -447,13 +447,13 @@ const plugin = ({widgets, simulator, vehicle}) => {
 		// 		index = index + (17 * 60)
 		// }
 
-        box.injectNode(controlsFrame)
-        return () => {
+		box.injectNode(controlsFrame)
+		return () => {
 			//clearInterval(intervalId)
 			clearInterval(sim_intervalId)
-            // Deactivation function for clearing intervals or such.
-        }
-    })
+			// Deactivation function for clearing intervals or such.
+		}
+	})
 
 	widgets.register("Table", StatusTable({
 		apis: ["Vehicle.Speed", "Vehicle.TripMeterReading", "Vehicle.Acceleration.Lateral", "Vehicle.Acceleration.Longitudinal", "Vehicle.Acceleration.Vertical", "Vehicle.AngularVelocity.Roll", "Vehicle.AngularVelocity.Pitch", "Vehicle.AngularVelocity.Yaw", "Vehicle.CurrentLocation.Latitude", "Vehicle.CurrentLocation.Longitude"],
@@ -473,17 +473,17 @@ const plugin = ({widgets, simulator, vehicle}) => {
 				"lng": 10.425532
 			},
 		]
-		GoogleMapsPluginApi(PLUGINS_APIKEY, box, path, "BICYCLING").then(({setVehiclePin}) => {
+		GoogleMapsPluginApi(PLUGINS_APIKEY, box, path, "BICYCLING").then(({ setVehiclePin }) => {
 			setVehiclePinGlobal = setVehiclePin
 		})
 	})
 
 	let scoreFrame = null;
 	widgets.register("Score", (box) => {
-	scoreFrame = document.createElement("div")	
-	scoreFrame.style = `width:100%;height:100%;display:flex;align-content:center;justify-content:center;align-items:center`
-	scoreFrame.innerHTML =
-		`
+		scoreFrame = document.createElement("div")
+		scoreFrame.style = `width:100%;height:100%;display:flex;align-content:center;justify-content:center;align-items:center`
+		scoreFrame.innerHTML =
+			`
 		<style>
         @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
         * {
@@ -515,8 +515,8 @@ const plugin = ({widgets, simulator, vehicle}) => {
 
 	let mobileNotifications = null;
 	widgets.register("Mobile", (box) => {
-		const {printNotification} = MobileNotifications({
-			apis : null,
+		const { printNotification } = MobileNotifications({
+			apis: null,
 			vehicle: null,
 			box: box,
 			refresh: null,
@@ -553,28 +553,28 @@ const plugin = ({widgets, simulator, vehicle}) => {
 		</div>
 		`
 		let timer;
-    	let top1 = 2.6;
+		let top1 = 2.6;
 
 		let animation_open = animationControlsFrame.querySelector("#animation_window_open")
 		animation_open.onclick = () => {
 			animationControlsFrame.querySelector("#animation_window_open").style.backgroundColor = "rgb(104 130 158)"
 			animationControlsFrame.querySelector("#animation_window_close").style.backgroundColor = "rgb(157 176 184)"
 			clearInterval(timer)
-		    timer = setInterval(function(){
-				top1<42.6 ? top1 = top1 + 0.1 : clearInterval(timer)
-				animationFrame.querySelector("#glass").style.top = top1+"%"
-			},10)
+			timer = setInterval(function () {
+				top1 < 42.6 ? top1 = top1 + 0.1 : clearInterval(timer)
+				animationFrame.querySelector("#glass").style.top = top1 + "%"
+			}, 10)
 		}
-	
+
 		let animation_close = animationControlsFrame.querySelector("#animation_window_close")
 		animation_close.onclick = () => {
 			animationControlsFrame.querySelector("#animation_window_open").style.backgroundColor = "rgb(157 176 184)"
 			animationControlsFrame.querySelector("#animation_window_close").style.backgroundColor = "rgb(104 130 158)"
 			clearInterval(timer)
-			timer = setInterval(function(){
-				top1>2.6 ? top1 = top1 - 0.1 : clearInterval(timer)
-				animationFrame.querySelector("#glass").style.top = top1+"%"
-			},10)
+			timer = setInterval(function () {
+				top1 > 2.6 ? top1 = top1 - 0.1 : clearInterval(timer)
+				animationFrame.querySelector("#glass").style.top = top1 + "%"
+			}, 10)
 		}
 
 		box.injectNode(animationControlsFrame)
@@ -582,11 +582,11 @@ const plugin = ({widgets, simulator, vehicle}) => {
 	})
 
 	let animationFrame = null;
-	
+
 	widgets.register("Animation", (box) => {
 		animationFrame = document.createElement("div")
-		animationFrame.innerHTML = 
-		`
+		animationFrame.innerHTML =
+			`
 		<style>
 		@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
         * {
@@ -608,24 +608,25 @@ const plugin = ({widgets, simulator, vehicle}) => {
 	})
 
 	let sim_function;
-	simulator("Vehicle.Speed", "subscribe", async ({func, args}) => {
+
+	simulator("Vehicle.Speed", "subscribe", async ({ func, args }) => {
 		sim_function = args[0]
 	})
 
 	return {
-		start_simulation : (time, skip=1) => {
+		start_simulation: (time, skip = 1) => {
 			sim_intervalId = setInterval(async () => {
-				for(let i=0;i<skip;i++) {
+				for (let i = 0; i < skip; i++) {
 					await vehicle.Next.get()
 				}
 				sim_function()
 				updateSimulation()
 			}, time)
 		},
-		load_signals : loadSpreadSheet,
-		update_simulation : updateSimulation
+		load_signals: loadSpreadSheet,
+		update_simulation: updateSimulation
 	}
-	
+
 }
 
 export default plugin

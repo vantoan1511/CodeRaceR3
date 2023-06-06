@@ -36,9 +36,6 @@ const GoogleMapsFromSignal = (directions, vehicle, {
                     lat: await vehicle.CurrentLocation.Latitude.get(),
                     lng: await vehicle.CurrentLocation.Longitude.get()
                 }))
-                if (iterate) {
-                    await vehicle.Next.get()
-                }
             }
         }, autoNext)
 
