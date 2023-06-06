@@ -79,7 +79,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
         // media_volume = parseInt(media_volume)
         // Policy 11
         IVIAnimationFrame.querySelector("#show").innerHTML = `Estimated travel range: ${(bat_soc*4.03).toFixed(2)} km <br> Distance to the nearest charging station: ${(450 - trvl_dist).toFixed(2)} km <br> Media volume: 100 <br> Interior Light System: Maximum light`;
-        HVACAnimationFrame.querySelector("#show").innerHTML = "Current air conditioner temperature: 15 <br>Fan speed: 100 ";
+        HVACAnimationFrame.querySelector("#main_text").innerHTML = "Current air conditioner temperature: 15 <br>Fan speed: 100 ";
         HVACAnimationFrame.querySelector("#wind").setAttribute("src", "https://firebasestorage.googleapis.com/v0/b/digital-auto.appspot.com/o/media%2Fblue%20air.gif?alt=media&token=6a00f612-649e-4587-9b46-0be192588088");
         IVIAnimationFrame.querySelector("#btnImg").setAttribute("src","https://firebasestorage.googleapis.com/v0/b/digital-auto.appspot.com/o/media%2Fevpoweroptimization%2Fivi%2Fpause.png?alt=media&token=8d615884-44aa-4bcb-93bc-49a0c3bb7958")
         IVIAnimationFrame.querySelector("#songName").style.animationPlayState = "running";
@@ -300,10 +300,18 @@ const plugin = ({widgets, simulator, vehicle}) => {
         }
     
         .main-text {
-            padding: 10px;
-            font-size: 22px;
-            font-weight: 600;
-            height: 86%;
+            background-color: #3c5c7b;
+            position: absolute;
+            top: 45%;
+            left: 31%;
+            width: 40%;
+            height: 15%;
+            font-size: 14px;
+            color: #e9e9e9;
+            text-align: center;
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
         }
     
         .song-div {
