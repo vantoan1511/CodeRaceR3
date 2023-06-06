@@ -245,7 +245,6 @@ const plugin = ({widgets, simulator, vehicle}) => {
     
         }
 
-        HVACAnimationFrame.querySelector("#show").innerHTML = "Current air conditioner temperature: <br>Fan speed: ";
         
 		box.injectNode(HVACAnimationFrame)        
 
@@ -454,7 +453,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
         }
 
         IVIAnimationFrame.querySelector("#songName").innerText = "Shape of You一Ed Sheeran";
-        IVIAnimationFrame.querySelector("#mainText").innerHTML = "Estimated travel range: <br> Distance to the nearest charging station: <br> Media volume: <br> Interior Light System:";
+        IVIAnimationFrame.querySelector("#mainText").innerHTML = "...DASHBOARD INFORMATION...";
 
         box.injectNode(IVIAnimationFrame)
 
