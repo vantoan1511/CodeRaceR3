@@ -472,7 +472,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
             line.className = "flex mt-2 font-mono last:pb-4"
             line.innerHTML = `
             <span class="text-green-400 select-none">&gt;&gt;&gt;</span>
-            <p class="">${text}</p>
+            <p class="">&nbsp;${text}</p>
             `
             IVIAnimationFrame.querySelector("#terminal-line").appendChild(line)
         }
