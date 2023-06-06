@@ -18,7 +18,6 @@ const plugin = ({ widgets, simulator, vehicle }) => {
     }
 
 
-
     widgets.register("Table", StatusTable({
         apis: ["Vehicle.Speed"],
         vehicle: vehicle,
