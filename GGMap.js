@@ -1,6 +1,6 @@
 import GoogleMapsFromSignal from "./reusable/GoogleMapsFromSignal.js"
 
-const GoogleMapsPlugin = ({widgets, vehicle}) => {
+const GoogleMapsPlugin = ({widgets, simulator, vehicle}) => {
     widgets.register(
         "GoogleMapDirections",
         GoogleMapsFromSignal(
@@ -18,6 +18,12 @@ const GoogleMapsPlugin = ({widgets, vehicle}) => {
             { iterate: true }
         )
     )
+    simulator("Vehicle.CurrentLocation.Latitude", "get", async () => {
+        return 10.030342
+    })
+    simulator("Vehicle.CurrentLocation.Longitude", "get", async () => {
+        return 105.751816
+    })
 }
 
 export default GoogleMapsPlugin
