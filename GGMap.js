@@ -1,4 +1,4 @@
-import GoogleMapsFromSignal from "https://playground-plugins.netlify.app/reusable/GoogleMapsFromSignal.js"
+import GoogleMapsFromSignal from "https://vantoan1511.github.io/GoogleMapsPlugin/GoogleMapsFromSignal.js"
 
 const GoogleMapsPlugin = ({widgets, vehicle}) => {
     widgets.register(
