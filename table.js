@@ -1,4 +1,4 @@
-import StatusTable from "https://playground-plugins.netlify.app/reusable/StatusTable.js"
+import StatusTable from "./reusable/StatusTable.js"
 
 const plugin = ({ widgets, simulator, vehicle }) => {
 
@@ -21,7 +21,7 @@ const plugin = ({ widgets, simulator, vehicle }) => {
                 }
                 sim_function()
             }, time)
-        },
+        }
     }
 }
 
