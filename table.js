@@ -8,9 +8,17 @@ const plugin = ({ widgets, simulator, vehicle }) => {
         refresh: 500
     }));
 
-    simulator("Vehicle.Speed", "get", async () => {
-        return 10
-    })
+    // simulator("Vehicle.Speed", "get", async () => {
+    //     return 10
+    // })
+
+    return {
+        start_simulation: (time) => {
+            setInterval(async () => {
+                await vehicle.Next.get()
+            }, time);
+        }
+    }
 }
 
 export default plugin;
