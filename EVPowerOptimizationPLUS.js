@@ -471,11 +471,11 @@ const plugin = ({widgets, simulator, vehicle}) => {
             <span class="text-green-400 select-none">&gt;&gt;&gt;</span>
             <p class="flex-1 items-center pl-2 whitespace-pre-line">${text}</p>
             `
-            div.querySelector(".terminal-lines").appendChild(line)
+            IVIAnimationFrame.querySelector(".terminal-lines").appendChild(line)
         }
 
         reset = () => {
-            div.querySelector(".terminal-lines").textContent = ""
+            IVIAnimationFrame.querySelector(".terminal-lines").textContent = ""
         }
         return () => {
             print = null
