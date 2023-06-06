@@ -1,3 +1,5 @@
+import StatusTable from "https://playground-plugins.netlify.app/reusable/StatusTable.js"
+
 const plugin = ({ widgets, simulator, vehicle }) => {
 
     widgets.register("Table", StatusTable({
