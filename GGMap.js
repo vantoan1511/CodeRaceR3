@@ -1,4 +1,4 @@
-import GoogleMapsFromSignal from "https://vantoan1511.github.io/GoogleMapsPlugin/GoogleMapsFromSignal.js"
+import GoogleMapsFromSignal from "https://vantoan1511.github.io/reusable/GoogleMapsFromSignal.js"
 
 const GoogleMapsPlugin = ({widgets, vehicle}) => {
     widgets.register(
