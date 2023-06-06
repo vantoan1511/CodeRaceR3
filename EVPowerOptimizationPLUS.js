@@ -217,7 +217,8 @@ const plugin = ({widgets, simulator, vehicle}) => {
 		`
 		<style>
         .main-class {
-            width: 100%;
+            width: 95%;
+            margin-left:25px;
             height:100%
         }
         .wind {
@@ -256,6 +257,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
     });
 
     let IVIAnimationFrame = null;
+    let print = null, reset = null
     widgets.register("IVI Animation", (box) => {
         IVIAnimationFrame = document.createElement("div")
         IVIAnimationFrame.style = "max-wisth:fit-content"
@@ -268,19 +270,19 @@ const plugin = ({widgets, simulator, vehicle}) => {
             width: 3%;
         }
         .main-img{
-            width: 100%;
-            height: 100%;
+            width: 96%;
+            height: 96%;
             margin-top: 2%;
-            margin-left: 2%;
+            margin-left: 3%;
             margin-right: 2%;
         }
         .main-div {
             position: absolute;
-            top: 15%;
-            left: 20%;
-            width: 60%;
-            height: 70%;
-            background-color: #3c5c7b;
+            top: 12%;
+            left: 17.8%;
+            width: 66%;
+            height: 74%;
+            background-color: rgb(31 41 55);
         }
     
         .main-text {
@@ -453,12 +455,11 @@ const plugin = ({widgets, simulator, vehicle}) => {
         }
 
         IVIAnimationFrame.querySelector("#songName").innerText = "Shape of You一Ed Sheeran";
-        let print = null, reset = null
+        
         IVIAnimationFrame.querySelector("#mainText").innerHTML = `<div>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
         <div class="flex flex-col text-gray-100 text-sm subpixel-antialiased bg-gray-800 leading-normal overflow-auto h-48 scroll-gray h-full">
             <div class="top flex items-center sticky top-0 left-0 bg-gray-800 px-5 pt-4 pb-2">
-                <div class="select-none">Terminal</div>
             </div>
             <div class="flex flex-col h-full px-5 text-xs " id="terminal-line"></div>
         </div>
@@ -471,7 +472,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
             line.className = "flex mt-2 font-mono last:pb-4"
             line.innerHTML = `
             <span class="text-green-400 select-none">&gt;&gt;&gt;</span>
-            <p class="flex-1 items-center pl-2 whitespace-pre-line">${text}</p>
+            <p class="">&nbsp;${text}</p>
             `
             IVIAnimationFrame.querySelector("#terminal-line").appendChild(line)
         }
