@@ -31,7 +31,7 @@ const GoogleMapsFromSignal = (directions, vehicle, {
         })
 
         if (!supportsPins(vehicle) && iterate) {
-            alert("GoogleMapsFromSignal plugin doesn't support 'iterate' parameter without Wishlist sensors 'Vehicle.Next' and 'Vehicle.Reset'.")
+            //alert("GoogleMapsFromSignal plugin doesn't support 'iterate' parameter without Wishlist sensors 'Vehicle.Next' and 'Vehicle.Reset'.")
         }
 
         const intervalId = setInterval(async () => {
