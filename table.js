@@ -4,7 +4,7 @@ const plugin = ({ widgets, simulator, vehicle }) => {
 
     const init = async () => {
         simulator("Vehicle.Speed", "get", async () => {
-            return 50
+            return 0
         })
     }
 
@@ -27,7 +27,7 @@ const plugin = ({ widgets, simulator, vehicle }) => {
 
 
     widgets.register("Table", StatusTable({
-        apis: ["Vehicle.Speed"],
+        apis: ["Vehicle.Speed","vehicle.CurrentLocation.Latitude"],
         vehicle: vehicle,
         refresh: 500
     }));
