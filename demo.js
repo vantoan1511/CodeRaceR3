@@ -1,4 +1,4 @@
-import StatusTable from "./reuseable/StatusTable.js"
+import StatusTable from "./reusable/StatusTable.js"
 
 const plugin = ({ widgets, simulator, vehicle }) => {
 

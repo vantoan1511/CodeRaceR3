@@ -1,4 +1,4 @@
-import GoogleMapsFromSignal from "./reuseable/GoogleMapsFromSignal.js"
+import GoogleMapsFromSignal from "./reusable/GoogleMapsFromSignal.js"
 
 const GoogleMapsPlugin = ({widgets, vehicle}) => {
     widgets.register(
