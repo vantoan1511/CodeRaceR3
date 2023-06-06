@@ -281,7 +281,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
             left: 20%;
             width: 60%;
             height: 70%;
-            background-color: #3c5c7b;
+            background-color: rgb(31 41 55);
         }
     
         .main-text {
@@ -459,7 +459,6 @@ const plugin = ({widgets, simulator, vehicle}) => {
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
         <div class="flex flex-col text-gray-100 text-sm subpixel-antialiased bg-gray-800 leading-normal overflow-auto h-48 scroll-gray h-full">
             <div class="top flex items-center sticky top-0 left-0 bg-gray-800 px-5 pt-4 pb-2">
-                <div class="select-none">Terminal</div>
             </div>
             <div class="flex flex-col h-full px-5 text-xs " id="terminal-line"></div>
         </div>
