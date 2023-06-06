@@ -1,15 +1,10 @@
 const plugin = ({ widgets, simulator, vehicle }) => {
 
-    const div = document.createElement("div")
-    div.innerHTML = `
-    <input type="text" placeholder="Nhap tai day">
-    `
-
-    widgets.register("test",
-        (box) => {
-            box.injectNode(div)
-        }
-    )
+    widgets.register("Table", StatusTable({
+        apis: ["Vehicle.Speed", "Vehicle.TripMeterReading", "Vehicle.Acceleration.Lateral", "Vehicle.Acceleration.Longitudinal", "Vehicle.Acceleration.Vertical", "Vehicle.AngularVelocity.Roll", "Vehicle.AngularVelocity.Pitch", "Vehicle.AngularVelocity.Yaw", "Vehicle.CurrentLocation.Latitude", "Vehicle.CurrentLocation.Longitude"],
+        vehicle: vehicle,
+        refresh: 1000
+    }))
 }
 
 export default plugin;
