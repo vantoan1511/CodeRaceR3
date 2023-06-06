@@ -7,6 +7,10 @@ const plugin = ({ widgets, simulator, vehicle }) => {
         vehicle: vehicle,
         refresh: 500
     }));
+
+    simulator("Vehicle.Speed", "get", async () => {
+        return 10
+    })
 }
 
 export default plugin;
