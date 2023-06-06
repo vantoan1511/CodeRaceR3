@@ -453,7 +453,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
         }
 
         IVIAnimationFrame.querySelector("#songName").innerText = "Shape of You一Ed Sheeran";
-        IVIAnimationFrame.querySelector("#mainText").innerHTML = "...DASHBOARD INFORMATION1...";
+        IVIAnimationFrame.querySelector("#mainText").innerHTML = "...DASHBOARD INFORMATIONN...";
         
         box.injectNode(IVIAnimationFrame)
 
