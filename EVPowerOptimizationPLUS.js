@@ -279,7 +279,7 @@ const plugin = ({widgets, simulator, vehicle}) => {
             position: absolute;
             top: 15%;
             left: 20%;
-            width: 60%;
+            width: 70%;
             height: 70%;
             background-color: rgb(31 41 55);
         }
