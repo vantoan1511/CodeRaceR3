@@ -482,8 +482,20 @@ const plugin = ({widgets, simulator, vehicle}) => {
                 clearInterval(sim_intervalId)
             }
         }
-    });
 
+    });
+    return {
+        print: (text) => {
+            if (print !== null) {
+                print(text)
+            }
+        },
+        reset: () => {
+            if (reset !== null) {
+                reset()
+            }
+        }
+    }
     widgets.register("Control Frame", (box) => {
         let controlFrame = document.createElement("div")
         controlFrame.style = "height:100%;display:flex;flex-direction:column;justify-content:space-evenly;align-items:center"
