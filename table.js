@@ -16,10 +16,12 @@ const plugin = ({ widgets, simulator, vehicle }) => {
             simulator("Vehicle.Speed", "get", async () => {
                 return currentSpeed * 0.98
             })
+        } else {
+            simulator("Vehicle.Speed", "get", async () => {
+                return currentSpeed * 1.05
+            })
         }
-        simulator("Vehicle.Speed", "get", async () => {
-            return currentSpeed * 1.05
-        })
+
     }
 
 
