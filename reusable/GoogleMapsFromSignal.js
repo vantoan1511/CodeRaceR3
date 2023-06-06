@@ -30,10 +30,6 @@ const GoogleMapsFromSignal = (directions, vehicle, {
             setVehiclePinGlobal = setVehiclePin
         })
 
-        if (!supportsPins(vehicle) && iterate) {
-            alert("GoogleMapsFromSignal plugin doesn't support 'iterate' parameter without Wishlist sensors 'Vehicle.Next' and 'Vehicle.Reset'.")
-        }
-
         const intervalId = setInterval(async () => {
             if (setVehiclePinGlobal !== null) {
                 setVehiclePinGlobal(convertCoordinates({
