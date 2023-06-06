@@ -79,7 +79,6 @@ const plugin = ({widgets, simulator, vehicle}) => {
         // media_volume = parseInt(media_volume)
         // Policy 11
         IVIAnimationFrame.querySelector("#main_text").innerHTML = `...DASHBOARD CONTENT...`;
-        HVACAnimationFrame.querySelector("#show").innerHTML = "Current air conditioner temperature: 15 <br>Fan speed: 100 ";
         HVACAnimationFrame.querySelector("#wind").setAttribute("src", "https://firebasestorage.googleapis.com/v0/b/digital-auto.appspot.com/o/media%2Fblue%20air.gif?alt=media&token=6a00f612-649e-4587-9b46-0be192588088");
         IVIAnimationFrame.querySelector("#btnImg").setAttribute("src","https://firebasestorage.googleapis.com/v0/b/digital-auto.appspot.com/o/media%2Fevpoweroptimization%2Fivi%2Fpause.png?alt=media&token=8d615884-44aa-4bcb-93bc-49a0c3bb7958")
         IVIAnimationFrame.querySelector("#songName").style.animationPlayState = "running";
@@ -226,20 +225,6 @@ const plugin = ({widgets, simulator, vehicle}) => {
             width: 100%;
             left: 0%;
         }
-        .show {
-            background-color: #3c5c7b;
-            position: absolute;
-            top: 45%;
-            left: 31%;
-            width: 40%;
-            height: 15%;
-            font-size: 14px;
-            color: #e9e9e9;
-            text-align: center;
-            display:flex;
-            flex-direction:column;
-            justify-content: center;
-        }
 		</style>
         <img class="main-class" src="https://firebasestorage.googleapis.com/v0/b/digital-auto.appspot.com/o/media%2Fevpoweroptimization%2Fhvac%2Fmain.png?alt=media&token=e4ec1915-de42-4226-8eeb-a74ab4d5f9e7">
         <img id="wind" class="wind" src="https://firebasestorage.googleapis.com/v0/b/digital-auto.appspot.com/o/media%2Fevpoweroptimization%2Fhvac%2Fsmall.gif?alt=media&token=a46d0186-80d0-4540-bf23-e94b0cd18368">
@@ -296,22 +281,16 @@ const plugin = ({widgets, simulator, vehicle}) => {
             left: 20%;
             width: 60%;
             height: 70%;
-            background-color: white;
+            background-color: #3c5c7b;
         }
     
         .main-text {
-            background-color: #3c5c7b;
-            position: absolute;
-            top: 45%;
-            left: 31%;
-            width: 40%;
-            height: 15%;
-            font-size: 14px;
             color: #e9e9e9;
             text-align: center;
-            display:flex;
-            flex-direction:column;
-            justify-content: center;
+            padding: 10px;
+            font-size: 22px;
+            font-weight: 600;
+            height: 86%;
         }
     
         .song-div {
