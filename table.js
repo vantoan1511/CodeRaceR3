@@ -3,7 +3,7 @@ import StatusTable from "./reusable/StatusTable.js"
 const plugin = ({ widgets, simulator, vehicle }) => {
 
     const init = async () => {
-        simulator("Vehicle.Speed", "get", async()=>{
+        simulator("Vehicle.Speed", "get", async () => {
             return 10
         })
     }
@@ -12,8 +12,8 @@ const plugin = ({ widgets, simulator, vehicle }) => {
 
     const set_speed = async () => {
         var currentSpeed = await vehicle.Speed.get()
-        simulator("Vehicle.Speed", "get", async()=>{
-            return currentSpeed*1.15
+        simulator("Vehicle.Speed", "get", async () => {
+            return currentSpeed * 1.15
         })
     }
 
@@ -24,9 +24,9 @@ const plugin = ({ widgets, simulator, vehicle }) => {
         refresh: 500
     }));
 
-    // simulator("Vehicle.Speed", "get", async () => {
-    //     return 10
-    // })
+    simulator("Vehicle.Speed", "get", async () => {
+        return 10
+    })
 
     return {
         start_simulation: (time) => {
