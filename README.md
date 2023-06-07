@@ -13,7 +13,7 @@ This repository contains the submission for Round 3 of the Bosch CodeRace compet
 
 ## Usage
 ### To use the system:
-- Go to our mmodel
+- Go to our model
 - Click on dashboard
 - Click run
 
