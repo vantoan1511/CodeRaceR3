@@ -16,6 +16,8 @@ const GoogleMapsPlugin = ({ widgets, simulator, vehicle }) => {
         })
     }
 
+    init()
+
     widgets.register(
         "GoogleMapDirections",
         GoogleMapsFromSignal(
