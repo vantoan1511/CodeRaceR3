@@ -66,11 +66,14 @@ const plugin = ({ widgets, simulator, vehicle }) => {
         setTimeout(() => {
             clearInterval(intervalId)
         }, 4000);
-        intervalId = setInterval(slowDown, time)
+        var intervalId2 = setInterval(slowDown, time)
         setTimeout(() => {
-            clearInterval(intervalId)
+            clearInterval(intervalId2)
         }, 4000);
-        setInterval(set_speed, time)
+        var intervalId3 = setInterval(set_speed, time)
+        setTimeout(() => {
+            clearInterval(intervalId3)
+        }, 3000);
     }
 
     const case_3 = async (time) => {
@@ -78,22 +81,22 @@ const plugin = ({ widgets, simulator, vehicle }) => {
         setTimeout(() => {
             clearInterval(intervalId)
         }, 2000);
-        intervalId = setInterval(slowDown, time)
+        var intervalId2 = setInterval(slowDown, time)
         setTimeout(() => {
-            clearInterval(intervalId)
+            clearInterval(intervalId2)
         }, 2000);
-        intervalId = setInterval(() => {
+        var intervalId3 = setInterval(() => {
             simulator("Vehicle.Speed", "get", async () => {
                 return 0
             })
         }, time)
         setTimeout(() => {
-            clearInterval(intervalId)
-        }, 2000);
-        intervalId = setInterval(set_speed, time)
+            clearInterval(intervalId3)
+        }, 1000);
+        var intervalId4 = setInterval(set_speed, time)
         setTimeout(() => {
-            clearInterval(intervalId)
-        }, 5000);
+            clearInterval(intervalId4)
+        }, 6000);
     }
 
     widgets.register("Table", StatusTable({
