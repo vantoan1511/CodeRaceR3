@@ -13,6 +13,28 @@ const plugin = ({ widgets, simulator, vehicle }) => {
 
     init()
 
+    const speedUp = async () => {
+        const acc = 5
+        var currentSpeed = await vehicle.Speed.get()
+        if (currentSpeed < 40) {
+            simulator("Vehicle.Speed", "get", async () => {
+                currentSpeed += acc * 1.07
+                return currentSpeed
+            })
+        }
+    }
+
+    const slowDown = async () => {
+        const acc = 5
+        var currentSpeed = await vehicle.Speed.get()
+        if (currentSpeed > 40) {
+            simulator("Vehicle.Speed", "get", async () => {
+                currentSpeed -= acc * 0.88
+                return currentSpeed
+            })
+        }
+    }
+
     const set_speed = async () => {
         const acc = 5
         var currentSpeed = await vehicle.Speed.get()
@@ -36,6 +58,18 @@ const plugin = ({ widgets, simulator, vehicle }) => {
         }, time);
     }
 
+    const case_2 = async (time) => {
+        var intervalId = setInterval(set_speed, 1000)
+        setTimeout(() => {
+            clearInterval(intervalId)
+        }, 4000);
+        intervalId = setInterval(slowDown, 1000)
+        setTimeout(() => {
+            clearInterval(intervalId)
+        }, 4000);
+        intervalId = setInterval(set_speed, 1000)
+    }
+
     widgets.register("Table", StatusTable({
         apis: ["Vehicle.Speed", "Vehicle.CurrentLocation.Latitude", "Vehicle.CurrentLocation.Longitude", "Vehicle.ADAS.EBA.IsError", "Vehicle.ADAS.EBA.IsEnabled"],
         vehicle: vehicle,
@@ -51,6 +85,9 @@ const plugin = ({ widgets, simulator, vehicle }) => {
             switch (caseId) {
                 case 1:
                     case_1(time)
+                    break;
+                case 2:
+                    case_2(time)
                     break;
                 default:
                     break;
