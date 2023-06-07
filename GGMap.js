@@ -16,8 +16,6 @@ const GoogleMapsPlugin = ({ widgets, simulator, vehicle }) => {
         })
     }
 
-    init()
-
     widgets.register(
         "GoogleMapDirections",
         GoogleMapsFromSignal(
@@ -54,6 +52,7 @@ const GoogleMapsPlugin = ({ widgets, simulator, vehicle }) => {
     return {
         start_simulation: (time) => {
             setInterval(async () => {
+                init()
                 set_location()
             }, time);
         }
