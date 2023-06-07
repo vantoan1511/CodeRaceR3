@@ -16,7 +16,7 @@ const plugin = ({ widgets, simulator, vehicle }) => {
     const set_speed = async () => {
         const acc = 5
         var currentSpeed = await vehicle.Speed.get()
-        if (currentSpeed > 60) {
+        if (currentSpeed > 40) {
             simulator("Vehicle.Speed", "get", async () => {
                 currentSpeed -= acc * 0.91
                 return currentSpeed
@@ -35,7 +35,7 @@ const plugin = ({ widgets, simulator, vehicle }) => {
     widgets.register("Table", StatusTable({
         apis: ["Vehicle.Speed","Vehicle.CurrentLocation.Latitude","Vehicle.CurrentLocation.Longitude","Vehicle.ADAS.EBA.IsError","Vehicle.ADAS.EBA.IsEnabled"],
         vehicle: vehicle,
-        refresh: 500
+        refresh: 1000
     }));
 
     // simulator("Vehicle.Speed", "get", async () => {
