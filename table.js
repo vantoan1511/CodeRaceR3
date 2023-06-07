@@ -59,15 +59,15 @@ const plugin = ({ widgets, simulator, vehicle }) => {
     }
 
     const case_2 = async (time) => {
-        var intervalId = setInterval(set_speed, 1000)
+        var intervalId = setInterval(set_speed, time)
         setTimeout(() => {
             clearInterval(intervalId)
         }, 4000);
-        intervalId = setInterval(slowDown, 1000)
+        intervalId = setInterval(slowDown, time)
         setTimeout(() => {
             clearInterval(intervalId)
         }, 4000);
-        intervalId = setInterval(set_speed, 1000)
+        intervalId = setInterval(set_speed, time)
     }
 
     widgets.register("Table", StatusTable({
