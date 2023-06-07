@@ -30,10 +30,15 @@ const plugin = ({ widgets, simulator, vehicle }) => {
 
     }
 
-
+    const case_1 = async (time) => {
+        setInterval(() => {
+            for (let i = 1; i <= 6; i++)
+                set_speed()
+        }, time);
+    }
 
     widgets.register("Table", StatusTable({
-        apis: ["Vehicle.Speed","Vehicle.CurrentLocation.Latitude","Vehicle.CurrentLocation.Longitude","Vehicle.ADAS.EBA.IsError","Vehicle.ADAS.EBA.IsEnabled"],
+        apis: ["Vehicle.Speed", "Vehicle.CurrentLocation.Latitude", "Vehicle.CurrentLocation.Longitude", "Vehicle.ADAS.EBA.IsError", "Vehicle.ADAS.EBA.IsEnabled"],
         vehicle: vehicle,
         refresh: 1000
     }));
@@ -43,10 +48,14 @@ const plugin = ({ widgets, simulator, vehicle }) => {
     // })
 
     return {
-        start_simulation: (time) => {
-            setInterval(async () => {
-                set_speed()
-            }, time);
+        start_simulation: (time, caseId) => {
+            switch (caseId) {
+                case 1:
+                    case_1(time)
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
