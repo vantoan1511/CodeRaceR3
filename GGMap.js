@@ -2,10 +2,10 @@ import GoogleMapsFromSignal from "./reusable/GoogleMapsFromSignal.js"
 
 const GoogleMapsPlugin = ({ widgets, simulator, vehicle }) => {
 
-    const lat_a = 10.030342
-    const lat_b = 10.030751
-    const lng_a = 105.751816
-    const lng_b = 105.752240
+    const lat_a = 10.029486
+    const lat_b = 10.031683
+    const lng_a = 105.750977
+    const lng_b = 105.753181
 
     const init = async () => {
         simulator("Vehicle.CurrentLocation.Latitude", "get", async () => {
