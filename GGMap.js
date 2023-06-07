@@ -51,8 +51,8 @@ const GoogleMapsPlugin = ({ widgets, simulator, vehicle }) => {
 
     return {
         start_simulation: (time) => {
+            init()
             setInterval(async () => {
-                init()
                 set_location()
             }, time);
         }
