@@ -69,9 +69,9 @@ const GoogleMapsPlugin = ({ widgets, simulator, vehicle }) => {
         setTimeout(() => {
             clearInterval(intervalId2)
         }, 2000);
-        var intervalId = setInterval(set_location, time)
+        var intervalId3 = setInterval(set_location, time)
         setTimeout(() => {
-            clearInterval(intervalId)
+            clearInterval(intervalId3)
         }, 4000);
     }
 
