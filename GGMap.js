@@ -40,8 +40,8 @@ const GoogleMapsPlugin = ({ widgets, simulator, vehicle }) => {
         var lat = await vehicle.CurrentLocation.Latitude.get()
         var lng = await vehicle.CurrentLocation.Longitude.get()
         if (lat < lat_b && lng < lng_b) {
-            lat += 0.000001
-            lng += 0.000001
+            lat += 0.00005
+            lng += 0.00005
             simulator("Vehicle.CurrentLocation.Latitude", "get", async () => {
                 return lat
             })
