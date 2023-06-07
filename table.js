@@ -56,9 +56,10 @@ const plugin = ({ widgets, simulator, vehicle }) => {
     }
 
     const case_1 = async (time) => {
-        setInterval(() => {
-            set_speed()
-        }, time);
+        var intervalId = setInterval(set_speed, time);
+        setTimeout(() => {
+            clearInterval(intervalId)
+        }, 11000);
     }
 
     const case_2 = async (time) => {
