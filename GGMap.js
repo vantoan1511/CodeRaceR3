@@ -62,9 +62,6 @@ const GoogleMapsPlugin = ({ widgets, simulator, vehicle }) => {
     }
 
     const case_2 = async (time) => {
-        setInterval(async () => {
-            set_location()
-        }, time);
     }
 
     return {
