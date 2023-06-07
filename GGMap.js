@@ -60,7 +60,19 @@ const GoogleMapsPlugin = ({ widgets, simulator, vehicle }) => {
         }, 11000);
     }
 
-    const case_2 = async (time) => {
+    const case_3 = async (time) => {
+        var intervalId = setInterval(set_location, time)
+        setTimeout(() => {
+            clearInterval(intervalId)
+        }, 4000);
+        var intervalId2 = setInterval(() => { }, time)
+        setTimeout(() => {
+            clearInterval(intervalId2)
+        }, 1000);
+        var intervalId = setInterval(set_location, time)
+        setTimeout(() => {
+            clearInterval(intervalId)
+        }, 6000);
     }
 
     return {
@@ -69,8 +81,8 @@ const GoogleMapsPlugin = ({ widgets, simulator, vehicle }) => {
                 case 1:
                     case_1(time)
                     break;
-                case 2:
-                    case_2(time)
+                case 3:
+                    case_3(time)
                     break;
                 default:
                     break;
