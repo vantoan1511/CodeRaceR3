@@ -4,7 +4,7 @@ const plugin = ({ widgets, simulator, vehicle }) => {
 
     const init = async () => {
         simulator("Vehicle.Speed", "get", async () => {
-            return 0
+            return 30
         })
     }
 
