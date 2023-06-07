@@ -48,18 +48,18 @@ const GoogleMapsPlugin = ({ widgets, simulator, vehicle }) => {
             simulator("Vehicle.CurrentLocation.Longitude", "get", async () => {
                 return lng
             })
+        } else {
+            init()
         }
     }
 
     const case_1 = async (time) => {
-        init()
         setInterval(async () => {
             set_location()
         }, time);
     }
 
     const case_2 = async (time) => {
-        init()
         setInterval(async () => {
             set_location()
         }, time);
