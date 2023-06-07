@@ -4,21 +4,24 @@ const plugin = ({ widgets, simulator, vehicle }) => {
 
     const init = async () => {
         simulator("Vehicle.Speed", "get", async () => {
-            return 30
+            return 0
         })
     }
 
     init()
 
     const set_speed = async () => {
+        const acc = 5
         var currentSpeed = await vehicle.Speed.get()
         if (currentSpeed > 60) {
             simulator("Vehicle.Speed", "get", async () => {
-                return currentSpeed * 0.8
+                currentSpeed -= acc * 0.8
+                return currentSpeed
             })
         } else {
             simulator("Vehicle.Speed", "get", async () => {
-                return currentSpeed * 1.05
+                currentSpeed += acc * 1.37
+                return currentSpeed
             })
         }
 
