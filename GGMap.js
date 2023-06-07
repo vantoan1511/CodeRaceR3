@@ -54,7 +54,6 @@ const GoogleMapsPlugin = ({ widgets, simulator, vehicle }) => {
     }
 
     const case_1 = async (time) => {
-        setInterval(set_location, time)
         var intervalId = setInterval(set_location, time)
         setTimeout(() => {
             clearInterval(intervalId)
