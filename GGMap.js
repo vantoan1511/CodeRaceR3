@@ -51,12 +51,22 @@ const GoogleMapsPlugin = ({ widgets, simulator, vehicle }) => {
         }
     }
 
+    const case_1 = async (time) => {
+        init()
+        setInterval(async () => {
+            set_location()
+        }, time);
+    }
+
     return {
-        start_simulation: (time) => {
-            init()
-            setInterval(async () => {
-                set_location()
-            }, time);
+        start_simulation: (time, caseId) => {
+            switch (caseId) {
+                case 1:
+                    case_1(time)
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
