@@ -6,6 +6,9 @@ const plugin = ({ widgets, simulator, vehicle }) => {
         simulator("Vehicle.Speed", "get", async () => {
             return 0
         })
+        simulator("Vehicle.ADAS.EBA.IsError", "get", async () => {
+            return false
+        })
     }
 
     init()

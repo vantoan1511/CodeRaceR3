@@ -1,4 +1,4 @@
-const Terminal = ({ widgets }) => {
+const Terminal = ({widgets}) => {
     let print = null, reset = null
     widgets.register("Terminal", (box) => {
         const div = document.createElement("div")
