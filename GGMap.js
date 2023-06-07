@@ -68,11 +68,11 @@ const GoogleMapsPlugin = ({ widgets, simulator, vehicle }) => {
         var intervalId2 = setInterval(() => { }, time)
         setTimeout(() => {
             clearInterval(intervalId2)
-        }, 1000);
+        }, 2000);
         var intervalId = setInterval(set_location, time)
         setTimeout(() => {
             clearInterval(intervalId)
-        }, 6000);
+        }, 4000);
     }
 
     return {
